@@ -1,0 +1,25 @@
+version: '3.9'
+
+services:
+  app:
+    image: 'askida-kitap:0.1'
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    networks:
+      - askida-kitap-network
+
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USERNAME: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: askidakitap
+
+
+networks:
+  askida-kitap-network:
