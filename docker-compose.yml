@@ -28,6 +28,7 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/askidakitap
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=postgres
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
     depends_on:
       - db
 
@@ -42,7 +43,7 @@ services:
         - POSTGRES_USER=postgres
         - POSTGRES_DB=askidakitap
     volumes:
-      - .docker/postgres/postgres-data:/var/lib/postgresql/data
+      - ./docker/postgres/postgres-data:/var/lib/postgresql/data
     networks:
       - askida-kitap-network
 
