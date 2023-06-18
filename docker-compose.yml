@@ -54,6 +54,16 @@ services:
     networks:
       - askida-kitap-network
 
+  #REDIS
+  redis:
+    image: "redis:alpine"
+    command: redis-server --requirepass 123456
+    ports:
+      - "6379:6379"
+    networks:
+      - askida-kitap-network
+    restart: always
+
 
 networks:
   askida-kitap-network:
