@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class KitapApplication {
 	@RequestMapping("/")
 	public String home() {
-		return "Hello World";
+		return "Hello 54564";
 	}
 	public static void main(String[] args) {
 		SpringApplication.run(KitapApplication.class, args);

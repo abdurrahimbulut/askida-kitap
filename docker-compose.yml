@@ -20,8 +20,15 @@ services:
     container_name: askida-kitap-app
     build:
       context: .
+    command: sh ./docker/bash/run.sh
+    volumes:
+      - ./:/askida-kitap
+      - ./.m2:/root/.m2
+    working_dir: /askida-kitap
     ports:
-      - ":8080"
+      - 8080:8080
+      - 35729:35729
+      - 5005:5005
     networks:
       - askida-kitap-network
     environment:
