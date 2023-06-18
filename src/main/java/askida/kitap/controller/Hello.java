@@ -19,10 +19,10 @@ public class Hello {
 
     @RequestMapping({"/hello/redis"})
     public String redis() {
-        String deneme = "";
-        this.template.opsForValue().set("asdsa", "Redis running");
-        deneme = (String)this.template.opsForValue().get("asdsa");
-        return deneme;
+        String value = "";
+        this.template.opsForValue().set("value", "Redis running");
+        value = (String)this.template.opsForValue().get("value");
+        return value;
     }
 
 }
