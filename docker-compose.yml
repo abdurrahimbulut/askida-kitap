@@ -8,7 +8,7 @@ services:
     ports:
       - 80:80
     volumes:
-      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./docker/configure/nginx/default.conf:/etc/nginx/conf.d/default.conf
     networks:
       - askida-kitap-network
     depends_on:
@@ -20,10 +20,10 @@ services:
     container_name: askida-kitap-app
     build:
       context: .
-    command: sh ./docker/bash/run.sh
+    command: sh ./docker/configure/bash/run.sh
     volumes:
       - ./:/askida-kitap
-      - ./docker/app/.m2:/root/.m2
+      - ./docker/volumes/app/.m2:/root/.m2
     working_dir: /askida-kitap
     ports:
       - 8080:8080
@@ -50,7 +50,7 @@ services:
         - POSTGRES_USER=postgres
         - POSTGRES_DB=askidakitap
     volumes:
-      - ./docker/postgres/postgres-data:/var/lib/postgresql/data
+      - ./docker/volumes/postgres/postgres-data:/var/lib/postgresql/data
     networks:
       - askida-kitap-network
 
